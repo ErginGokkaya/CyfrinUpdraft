@@ -1,66 +1,19 @@
-## Foundry
+Notes
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+- So as to import contract with a relative path like "@chainlink/contracts/" you may need to download first. Use the command below to get them in your terminal
 
-Foundry consists of:
+'''
+forge install smartcontractkit/chainlink-brownie-contracts@1.1.1
+'''
 
-- **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
-- **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
-- **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
-- **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+once you have the libs and contracts, you may need to remap the path to refer "@chainlink/contracts/". To do that, add the below line into youtr foundry.toml file
 
-## Documentation
+'''
+remappings = ["@chainlink/contracts/=lib/chainlink-brownie-contracts/contracts/"]
+'''
 
-https://book.getfoundry.sh/
 
-## Usage
-
-### Build
-
-```shell
-$ forge build
-```
-
-### Test
-
-```shell
-$ forge test
-```
-
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+- To run the all cases, execute the below
+'''
+forge test -vv
+'''
