@@ -17,3 +17,40 @@ remappings = ["@chainlink/contracts/=lib/chainlink-brownie-contracts/contracts/"
 '''
 forge test -vv
 '''
+
+- To run a single test case
+'''
+forge test -mt <testcase_name>
+'''
+
+- if you don't specify the RPC_URL or something, foundry calls anvil on behalf of you as default.
+
+
+// Unit test: testing individual units of code (functions)
+// Integration test: testing how different units work together
+// Forked test: testing our code on a forked mainnet (or testnet) state.. it is like a simulation
+// Staging test: testing our code on a real testnet (not a fork, but the actual testnet)
+
+- For forked test, use an RPC URL from somewhere like alchemy
+
+- In order to see the test case coverage, use below:
+'''
+forge coverage --forked-url $YOUR_FORKED_URL
+'''
+
+- To simulate a contract like a price feed in your local blockchain such as anvil, use mocks:
+
+## 🚀 Never Forget!!! Foundry Cheatcodes are Treasure 🚀
+
+- test case organization approach:
+    function testABC() external{
+        // Arrange
+
+        // Act
+
+        // Assert
+    }
+
+- To see how much gas is spent for a test, use forge snapshot
+
+- To check the storage: forge inspect <ContractName> storageLayout
